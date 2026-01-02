@@ -29,7 +29,10 @@
 ```sql
 CREATE DATABASE match3;
 
+---
+
 ### 2. application.properties 설정
+```properties
 spring.datasource.url=jdbc:mysql://localhost:3306/match3
 spring.datasource.username=your_username
 spring.datasource.password=your_password
