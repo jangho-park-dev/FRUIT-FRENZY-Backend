@@ -28,8 +28,7 @@
 ### 1. MySQL 실행
 ```sql
 CREATE DATABASE match3;
-
----
+```
 
 ### 2. application.properties 설정
 ```properties
@@ -39,6 +38,7 @@ spring.datasource.password=your_password
 
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
+```
 
 > DB 계정 정보는 개인 환경에 맞게 설정합니다.
 
