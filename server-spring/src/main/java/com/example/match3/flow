@@ -1,0 +1,56 @@
+기능별 데이터 흐름(요청→처리→DB)
+
+    A) 회원가입(signup)
+
+        클라이언트 → POST /auth/signup(username, password)
+
+        Controller가 DTO로 받음
+
+        Service :
+
+            username 중복 체크
+
+            password를 BCrypt로 해시 → passwordHash
+
+            User 엔티티 생성 후 저장
+
+        Repository가 DB insert
+
+        응답 : 가입 성공 (비밀번호 절대 응답에 포함 X)
+
+    B) 로그인(login)
+        
+        클라이언트 → POST /auth/login (username, password)
+
+        Service :
+
+            username으로 유저 찾기
+
+            BCrypt로 password 검증 (matches)
+
+        성공하면 "로그인 성공"
+
+            (JWT/세션은 나중에 붙임. 지금은 그냥 성공/실패만)
+
+    C) 점수 저장 (best score only)
+
+        클라이언트 → POST /scores (username, score)
+
+            (나중엔 로그인 붙이면 username 대신 토큰/세션에서 꺼냄)
+
+        Service :
+
+            현재 best_score 조회
+
+            새 score가 더 크면 update
+
+            아니면 무시
+
+        응답 : "갱신됨/유지됨" 같은 상태
+
+
+HTTP 메서드 종류
+GET : 얻어올 때
+POST : 추가할 때
+PUT : 수정할 때
+DELETE : 삭제할 때

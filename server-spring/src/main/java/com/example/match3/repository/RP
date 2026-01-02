@@ -1,0 +1,5 @@
+DB랑 대화하는 창구(JPA, Java Persistence API)
+
+DB 쿼리를 자바 메서드처럼 쓰게 해줌
+
+예: findByUsername("jangho")
